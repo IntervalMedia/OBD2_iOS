@@ -1,0 +1,124 @@
+name: Build and Release IPA
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag to create when running manually"
+        required: false
+      release_name:
+        description: "Optional release title override"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: macos-14
+    env:
+      THEOS: ${{ github.workspace }}/theos
+      PACKAGE_FORMAT: ipa
+      FINALPACKAGE: "1"
+      TARGET_CODESIGN: ""
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Theos and build dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/theos/theos.git "$THEOS"
+          mkdir -p "$THEOS/sdks"
+          SDK_PATH="$(xcrun --sdk iphoneos --show-sdk-path)"
+          ln -s "$SDK_PATH" "$THEOS/sdks/iPhoneOS.sdk"
+          brew update
+          brew install ldid
+
+      - name: Build IPA
+        shell: bash
+        run: |
+          set -euo pipefail
+          make clean package
+
+      - name: Strip bundle signatures from IPA
+        id: ipa
+        shell: bash
+        run: |
+          set -euo pipefail
+          IPA_PATH="$(find packages -maxdepth 1 -name '*.ipa' -print -quit)"
+          if [[ -z "$IPA_PATH" ]]; then
+            echo "No IPA produced under packages/." >&2
+            exit 1
+          fi
+
+          WORK_DIR="$(mktemp -d)"
+          unzip -q "$IPA_PATH" -d "$WORK_DIR"
+          find "$WORK_DIR/Payload" -name '_CodeSignature' -type d -exec rm -rf {} +
+          find "$WORK_DIR/Payload" -name 'CodeResources' -type f -delete
+
+          UNSIGNED_IPA="packages/$(basename "${IPA_PATH%.ipa}")-unsigned.ipa"
+          (
+            cd "$WORK_DIR"
+            zip -qry "$GITHUB_WORKSPACE/$UNSIGNED_IPA" Payload
+          )
+
+          echo "path=$UNSIGNED_IPA" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve release metadata
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+            RELEASE_TAG="${GITHUB_REF_NAME}"
+          elif [[ -n "${{ github.event.inputs.release_tag }}" ]]; then
+            RELEASE_TAG="${{ github.event.inputs.release_tag }}"
+          else
+            RELEASE_TAG="build-${GITHUB_RUN_NUMBER}"
+          fi
+
+          if [[ -n "${{ github.event.inputs.release_name }}" ]]; then
+            RELEASE_NAME="${{ github.event.inputs.release_name }}"
+          else
+            RELEASE_NAME="IPA ${RELEASE_TAG}"
+          fi
+
+          echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+          echo "name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-ipa
+          path: ${{ steps.ipa.outputs.path }}
+
+      - name: Create GitHub release and upload IPA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "${{ steps.release.outputs.tag }}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            gh release upload "${{ steps.release.outputs.tag }}" \
+              "${{ steps.ipa.outputs.path }}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --clobber
+          else
+            gh release create "${{ steps.release.outputs.tag }}" \
+              "${{ steps.ipa.outputs.path }}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --target "${GITHUB_SHA}" \
+              --title "${{ steps.release.outputs.name }}" \
+              --generate-notes
+          fi

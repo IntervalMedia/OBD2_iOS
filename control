@@ -1,0 +1,9 @@
+Package: com.yourcompany.obd
+Name: OBD
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome SwiftUI application!
+Maintainer: jonny begood
+Author: jonny begood
+Section: Utilities
+Depends: firmware (>= 15.0)
