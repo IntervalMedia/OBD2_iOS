@@ -30,11 +30,7 @@ struct LiveChartView: View {
             .padding(.horizontal)
 
             if chartSamples.isEmpty {
-                ContentUnavailableView(
-                    "No live samples yet",
-                    systemImage: "chart.line.uptrend.xyaxis",
-                    description: Text("Start live polling from the Live tab.")
-                )
+                emptyStateView
             } else {
                 Chart(chartSamples) { sample in
                     if let yValue = value(for: sample) {
@@ -74,6 +70,25 @@ struct LiveChartView: View {
         }
         .navigationTitle("Charts")
         .background(Color(.systemGroupedBackground))
+    }
+
+    private var emptyStateView: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "chart.line.uptrend.xyaxis")
+                .font(.system(size: 34, weight: .semibold))
+                .foregroundStyle(.secondary)
+
+            Text("No live samples yet")
+                .font(.headline)
+
+            Text("Start live polling from the Live tab.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 32)
+        .padding(.horizontal)
     }
 
     private func value(for sample: LiveSample) -> Double? {

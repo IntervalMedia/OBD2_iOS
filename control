@@ -6,4 +6,4 @@ Description: An awesome SwiftUI application!
 Maintainer: jonny begood
 Author: jonny begood
 Section: Utilities
-Depends: firmware (>= 15.0)
+Depends: firmware (>= 16.0)

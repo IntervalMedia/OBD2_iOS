@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 final class AppEnvironment: ObservableObject {
     let logStore: LogStore
     let persistenceStore: PersistenceStore

@@ -1,4 +1,4 @@
-TARGET = iphone:clang:latest:15.2
+TARGET = iphone:clang:latest:16.0
 # INSTALL_TARGET_PROCESSES = OBD
 # THEOS_PACKAGE_SCHEME = roothide
 
