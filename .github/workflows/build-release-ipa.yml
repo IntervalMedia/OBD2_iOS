@@ -33,22 +33,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-        
+
       - name: Install Theos and build dependencies
         shell: bash
         run: |
           set -euo pipefail
-          git clone --depth 1 https://github.com/theos/theos.git "$THEOS"
-      
+
+          brew update
+          brew install ldid make dpkg coreutils xz
+
+          # Clone Theos (include submodules)
+          git clone --depth 1 --recursive https://github.com/theos/theos.git "$THEOS"
+
           # Bootstrap Theos vendor dependencies (fixes missing vendor/include + vendor/lib)
           "$THEOS/bin/update-theos"
-      
+
+          # Install iPhoneOS16.5 SDK into $THEOS/sdks
           mkdir -p "$THEOS/sdks"
-          SDK_PATH="$(xcrun --sdk iphoneos --show-sdk-path)"
-          ln -sfn "$SDK_PATH" "$THEOS/sdks/iPhoneOS.sdk"
-      
-          brew update
-          brew install ldid
+          curl -L "https://github.com/theos/sdks/releases/latest/download/iPhoneOS16.5.sdk.tar.xz" \
+            -o "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
+
+          xz -d "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
+          tar -xf "$THEOS/sdks/iPhoneOS16.5.sdk.tar" -C "$THEOS/sdks"
+          rm -f "$THEOS/sdks/iPhoneOS16.5.sdk.tar"
+
+          test -d "$THEOS/sdks/iPhoneOS16.5.sdk"
 
       - name: Build IPA
         shell: bash
