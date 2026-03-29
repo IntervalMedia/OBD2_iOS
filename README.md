@@ -30,7 +30,7 @@ Future Features:
 ## Requirements
 
 - Theos build system
-- Jailbrpken iOS16+ device
+- Jailbroken iOS 16+ device
 - A Wi-Fi ELM327-compatible OBD-II adapter
 
 ## Project Structure
