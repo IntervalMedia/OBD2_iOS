@@ -1,16 +1,25 @@
 import Foundation
 import Network
 
-final class OBDTransport {
+final class OBDTransport: OBDTransporting {
     private var connection: NWConnection?
     private let queue = DispatchQueue(label: "obd.transport.queue")
     private let responseBuffer = AdapterResponseBuffer()
+    private let host: String
+    private let port: UInt16
 
-    var onStateChanged: ((NWConnection.State) -> Void)?
+    var onStateChanged: ((OBDTransportState) -> Void)?
     var onResponse: ((String) -> Void)?
     var onError: ((Error) -> Void)?
 
-    func connect(host: String, port: UInt16) {
+    init(host: String, port: UInt16) {
+        self.host = host
+        self.port = port
+    }
+
+    func connect() {
+        onStateChanged?(.setup)
+
         let connection = NWConnection(
             host: NWEndpoint.Host(host),
             port: NWEndpoint.Port(rawValue: port)!,
@@ -20,7 +29,7 @@ final class OBDTransport {
         self.connection = connection
 
         connection.stateUpdateHandler = { [weak self] state in
-            self?.onStateChanged?(state)
+            self?.onStateChanged?(Self.mapState(state))
             if case .ready = state {
                 self?.startReceiveLoop()
             }
@@ -33,6 +42,7 @@ final class OBDTransport {
         connection?.cancel()
         connection = nil
         responseBuffer.clear()
+        onStateChanged?(.disconnected)
     }
 
     func send(_ command: String, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -69,6 +79,25 @@ final class OBDTransport {
             if !isComplete {
                 self.startReceiveLoop()
             }
+        }
+    }
+
+    private static func mapState(_ state: NWConnection.State) -> OBDTransportState {
+        switch state {
+        case .setup:
+            return .setup
+        case .waiting(let error):
+            return .waiting(error.localizedDescription)
+        case .preparing:
+            return .preparing
+        case .ready:
+            return .ready("Connected")
+        case .failed(let error):
+            return .failed(error.localizedDescription)
+        case .cancelled:
+            return .cancelled
+        @unknown default:
+            return .unknown("Unknown network state")
         }
     }
 }

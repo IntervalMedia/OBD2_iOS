@@ -1,11 +1,11 @@
 # OBDMVP
 
-A SwiftUI based Application for iOS for connecting to a Wi-Fi ELM327-style OBD-II adapter and performing **OBD-II** operations.
+A SwiftUI based Application for iOS for connecting to Wi-Fi or Bluetooth LE ELM327-style OBD-II adapters and performing **OBD-II** operations.
 
 ## Scope
 
 Included:
-- Wi-Fi TCP connection to ELM-style adapter
+- Wi-Fi TCP and Bluetooth LE connection to ELM-style adapter
 - Adapter initialization (AT commands)
 - Standard OBD-II PID polling
 - Live dashboard
@@ -31,7 +31,7 @@ Future Features:
 
 - Theos build system
 - Jailbroken iOS 16+ device
-- A Wi-Fi ELM327-compatible OBD-II adapter
+- A Wi-Fi or Bluetooth LE ELM327-compatible OBD-II adapter
 
 ## Project Structure
 
@@ -57,20 +57,21 @@ OBDMVP/
 
 ```
 
-If your adapter behaves badly on local networking, you may need targeted ATS adjustments. Do not loosen ATS broadly unless you actually need it.
+If your Wi-Fi adapter behaves badly on local networking, you may need targeted ATS adjustments. Do not loosen ATS broadly unless you actually need it.
 
 ## First Test Flow
 
-1. Join the adapter Wi-Fi network.
+1. Join the adapter Wi-Fi network or pair a compatible Bluetooth LE adapter.
 2. Open the app.
-3. Confirm host and port in Settings/Connection.
-4. Tap **Connect**.
-5. Tap **Initialize Adapter**.
-6. Tap **Read VIN**.
-7. Start live polling.
-8. Open Charts.
-9. Read DTCs.
-10. Export CSV.
+3. Choose Wi-Fi or Bluetooth LE on the Connection screen.
+4. For Wi-Fi, confirm host and port. For Bluetooth LE, scan and select an adapter.
+5. Tap **Connect**.
+6. Tap **Initialize Adapter**.
+7. Tap **Read VIN**.
+8. Start live polling.
+9. Open Charts.
+10. Read DTCs.
+11. Export CSV.
 
 ## Persistence
 

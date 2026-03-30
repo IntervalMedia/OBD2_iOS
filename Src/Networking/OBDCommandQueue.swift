@@ -1,11 +1,11 @@
 import Foundation
 
 actor OBDCommandQueue {
-    private let transport: OBDTransport
+    private let transport: OBDTransporting
     private var pendingContinuation: CheckedContinuation<String, Error>?
     private var pendingCommand: String?
 
-    init(transport: OBDTransport) {
+    init(transport: OBDTransporting) {
         self.transport = transport
     }
 

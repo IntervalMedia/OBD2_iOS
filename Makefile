@@ -10,7 +10,7 @@ include $(THEOS)/makefiles/common.mk
 APPLICATION_NAME = OBD
 
 OBD_FILES = $(shell find Src -name '*.swift' | grep -v '/Package.swift$$')
-OBD_FRAMEWORKS = UIKit SwiftUI Charts Network
+OBD_FRAMEWORKS = UIKit SwiftUI Charts Network CoreBluetooth
 OBD_RESOURCE_DIRS = Resources
 
 # $(wildcard Src/App/*.swift) $(wildcard Src/Models/*.swift) $(wildcard Src/Networking/*.swift) $(wildcard Src/Services/*.swift) $(wildcard Src/Utilities/*.swift) $(wildcard Src/ViewModels/*.swift) $(wildcard Src/Views/*.swift)

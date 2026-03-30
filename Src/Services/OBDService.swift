@@ -1,5 +1,4 @@
 import Foundation
-import Network
 
 @MainActor
 final class OBDService: ObservableObject {
@@ -10,16 +9,20 @@ final class OBDService: ObservableObject {
     @Published private(set) var dtcs: [DiagnosticTroubleCode] = []
     @Published private(set) var vehicleInfo: VehicleInfo
     @Published private(set) var connectionStateDescription: String = "Disconnected"
+    @Published private(set) var bluetoothAdapters: [BluetoothAdapterDescriptor] = []
+    @Published private(set) var isScanningBluetoothAdapters = false
+    @Published private(set) var selectedBluetoothAdapter: BluetoothAdapterDescriptor?
     @Published var settings: ConnectionSettings {
         didSet {
             persistenceStore.saveConnectionSettings(settings)
+            syncSelectedBluetoothAdapterFromSettings()
         }
     }
 
-    private let transport = OBDTransport()
+    private var transport: OBDTransporting
+    private var commandQueue: OBDCommandQueue
     private let logStore: LogStore
     private let persistenceStore: PersistenceStore
-    private lazy var commandQueue = OBDCommandQueue(transport: transport)
     private var pollingTask: Task<Void, Never>?
 
     init(logStore: LogStore, persistenceStore: PersistenceStore) {
@@ -29,32 +32,29 @@ final class OBDService: ObservableObject {
         self.liveSamples = persistenceStore.loadLiveSamples()
         self.vehicleInfo = persistenceStore.loadVehicleInfo()
         self.latestSample = self.liveSamples.last
+        self.transport = OBDService.makeTransport(for: settings)
+        self.commandQueue = OBDCommandQueue(transport: transport)
 
-        transport.onStateChanged = { [weak self] state in
-            Task { @MainActor in
-                self?.handleTransportState(state)
-            }
-        }
-
-        transport.onResponse = { [weak self] response in
-            Task {
-                await self?.commandQueue.handleResponse(response)
-            }
-        }
-
-        transport.onError = { [weak self] error in
-            Task {
-                await self?.commandQueue.handleError(error)
-                await MainActor.run {
-                    self?.logStore.append("Transport error: \(error.localizedDescription)")
-                }
-            }
-        }
+        configureTransportCallbacks()
+        syncSelectedBluetoothAdapterFromSettings()
     }
 
     func connect() {
-        logStore.append("Connecting to \(settings.host):\(settings.port)")
-        transport.connect(host: settings.host, port: settings.port)
+        rebuildTransportIfNeeded()
+
+        switch settings.transportType {
+        case .wifi:
+            logStore.append("Connecting to \(settings.host):\(settings.port)")
+        case .bluetoothLE:
+            guard selectedBluetoothAdapter != nil else {
+                connectionStateDescription = AppError.bluetoothAdapterNotSelected.localizedDescription
+                logStore.append(AppError.bluetoothAdapterNotSelected.localizedDescription)
+                return
+            }
+            logStore.append("Connecting to BLE adapter \(selectedBluetoothAdapter?.displayName ?? "Unknown")")
+        }
+
+        transport.connect()
     }
 
     func disconnect() {
@@ -64,6 +64,24 @@ final class OBDService: ObservableObject {
         isInitialized = false
         connectionStateDescription = "Disconnected"
         logStore.append("Disconnected")
+    }
+
+    func scanForBluetoothAdapters() async {
+        settings.transportType = .bluetoothLE
+        rebuildTransportIfNeeded()
+
+        guard let bluetoothTransport = transport as? BluetoothELM327Transport else { return }
+        await bluetoothTransport.scanForAdapters()
+    }
+
+    func selectBluetoothAdapter(_ adapter: BluetoothAdapterDescriptor) {
+        selectedBluetoothAdapter = adapter
+        settings.preferredBluetoothPeripheralID = adapter.identifier
+        settings.preferredBluetoothPeripheralName = adapter.displayName
+
+        if let bluetoothTransport = transport as? BluetoothELM327Transport {
+            bluetoothTransport.selectAdapter(adapter)
+        }
     }
 
     func initializeAdapter() async {
@@ -179,29 +197,103 @@ final class OBDService: ObservableObject {
         return response
     }
 
-    private func handleTransportState(_ state: NWConnection.State) {
+    private func configureTransportCallbacks() {
+        transport.onStateChanged = { [weak self] state in
+            Task { @MainActor in
+                self?.handleTransportState(state)
+            }
+        }
+
+        transport.onResponse = { [weak self] response in
+            Task {
+                await self?.commandQueue.handleResponse(response)
+            }
+        }
+
+        transport.onError = { [weak self] error in
+            Task {
+                await self?.commandQueue.handleError(error)
+                await MainActor.run {
+                    self?.logStore.append("Transport error: \(error.localizedDescription)")
+                }
+            }
+        }
+
+        if let bluetoothTransport = transport as? BluetoothELM327Transport {
+            bluetoothTransport.onAdaptersChanged = { [weak self] adapters in
+                self?.bluetoothAdapters = adapters
+                self?.syncSelectedBluetoothAdapterFromSettings()
+            }
+            bluetoothTransport.onScanningChanged = { [weak self] isScanning in
+                self?.isScanningBluetoothAdapters = isScanning
+            }
+        } else {
+            bluetoothAdapters = []
+            isScanningBluetoothAdapters = false
+            selectedBluetoothAdapter = nil
+        }
+    }
+
+    private func rebuildTransportIfNeeded() {
+        transport.disconnect()
+        transport = OBDService.makeTransport(for: settings)
+        commandQueue = OBDCommandQueue(transport: transport)
+        configureTransportCallbacks()
+        syncSelectedBluetoothAdapterFromSettings()
+    }
+
+    private func handleTransportState(_ state: OBDTransportState) {
+        connectionStateDescription = state.description
+        isConnected = state.isConnected
+
         switch state {
-        case .setup:
-            connectionStateDescription = "Setup"
-        case .waiting(let error):
-            connectionStateDescription = "Waiting: \(error.localizedDescription)"
-            isConnected = false
-        case .preparing:
-            connectionStateDescription = "Preparing"
-        case .ready:
-            connectionStateDescription = "Connected"
-            isConnected = true
-        case .failed(let error):
-            connectionStateDescription = "Failed: \(error.localizedDescription)"
-            isConnected = false
+        case .failed, .cancelled, .disconnected, .unauthorized, .unsupported:
             isInitialized = false
-        case .cancelled:
-            connectionStateDescription = "Cancelled"
-            isConnected = false
-            isInitialized = false
-        @unknown default:
-            connectionStateDescription = "Unknown"
-            isConnected = false
+        default:
+            break
+        }
+    }
+
+    private func syncSelectedBluetoothAdapterFromSettings() {
+        guard settings.transportType == .bluetoothLE else {
+            selectedBluetoothAdapter = nil
+            return
+        }
+
+        if let preferredID = settings.preferredBluetoothPeripheralID,
+           let matching = bluetoothAdapters.first(where: { $0.identifier == preferredID }) {
+            selectedBluetoothAdapter = matching
+            return
+        }
+
+        if let preferredID = settings.preferredBluetoothPeripheralID {
+            selectedBluetoothAdapter = BluetoothAdapterDescriptor(
+                identifier: preferredID,
+                name: settings.preferredBluetoothPeripheralName ?? "Saved Adapter",
+                signalStrength: nil
+            )
+            return
+        }
+
+        selectedBluetoothAdapter = nil
+    }
+
+    private static func makeTransport(for settings: ConnectionSettings) -> OBDTransporting {
+        switch settings.transportType {
+        case .wifi:
+            return OBDTransport(host: settings.host, port: settings.port)
+        case .bluetoothLE:
+            let descriptor: BluetoothAdapterDescriptor?
+            if let identifier = settings.preferredBluetoothPeripheralID {
+                descriptor = BluetoothAdapterDescriptor(
+                    identifier: identifier,
+                    name: settings.preferredBluetoothPeripheralName ?? "Saved Adapter",
+                    signalStrength: nil
+                )
+            } else {
+                descriptor = nil
+            }
+            return BluetoothELM327Transport(selectedAdapter: descriptor)
         }
     }
 }

@@ -80,5 +80,7 @@
 	</array>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>This app connects to a local Wi-Fi OBD adapter.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app uses Bluetooth LE to discover and connect to compatible ELM327 OBD adapters.</string>
 </dict>
 </plist>
