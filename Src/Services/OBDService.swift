@@ -26,13 +26,18 @@ final class OBDService: ObservableObject {
     private var pollingTask: Task<Void, Never>?
 
     init(logStore: LogStore, persistenceStore: PersistenceStore) {
+        let settings = persistenceStore.loadConnectionSettings()
+        let liveSamples = persistenceStore.loadLiveSamples()
+        let vehicleInfo = persistenceStore.loadVehicleInfo()
+        let transport = OBDService.makeTransport(for: settings)
+
         self.logStore = logStore
         self.persistenceStore = persistenceStore
-        self.settings = persistenceStore.loadConnectionSettings()
-        self.liveSamples = persistenceStore.loadLiveSamples()
-        self.vehicleInfo = persistenceStore.loadVehicleInfo()
-        self.latestSample = self.liveSamples.last
-        self.transport = OBDService.makeTransport(for: settings)
+        self.settings = settings
+        self.liveSamples = liveSamples
+        self.vehicleInfo = vehicleInfo
+        self.latestSample = liveSamples.last
+        self.transport = transport
         self.commandQueue = OBDCommandQueue(transport: transport)
 
         configureTransportCallbacks()
