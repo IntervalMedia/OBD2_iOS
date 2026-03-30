@@ -152,7 +152,7 @@ struct ConnectionView: View {
 
             if adapter.id == obd.selectedBluetoothAdapter?.id {
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(.accent)
+                    .foregroundColor(.accentColor)
             }
         }
         .padding(.vertical, 10)
