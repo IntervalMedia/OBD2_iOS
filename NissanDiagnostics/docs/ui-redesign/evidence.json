@@ -1,0 +1,82 @@
+{
+  "contract": "contract.json \u2014 real-adapter setup, explicit next action, validated readiness, iOS18/macOS15 fallbacks and accessible instrument-panel UI.",
+  "targetViewports": [
+    "iPhone 17 Pro portrait",
+    "macOS 1100x800"
+  ],
+  "accessibility": {
+    "status": "untested",
+    "evidence": "iPhone accessibility tree exposes connection steps, field labels, navigation and buttons; accessibility-large text was rendered and the step rail changes to vertical without text overlap. Full VoiceOver traversal, desktop keyboard focus and Reduce Motion system preference were not exercised. No decorative animation was introduced."
+  },
+  "responsive": {
+    "status": "untested",
+    "evidence": "iPhone17 Pro 402x874pt checked at standard and accessibility-large text. Initial macOS900x612pt layout was viewed, but final rebuild could not be reopened through CUA (cgWindowNotFound); target1100x800 capture remains untested."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "untested",
+      "evidence": "Connection/initialization progress and cancellation implemented; no real adapter used for rendered loading check."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "Disconnected setup, Live missing values, Diagnostics unread state and Nissan real-adapter requirement inspected in simulator; direct setup navigation exercised."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Cleared host in address field and tapped Connect & prepare. Keyboard dismissed, address validation message became visible with Try again. Restored original host afterward."
+    },
+    "partial": {
+      "status": "untested",
+      "evidence": "Missing values are dashes and stored readings timestamped in code. Partially supported vehicle response not rendered without hardware."
+    },
+    "success": {
+      "status": "untested",
+      "evidence": "Acknowledgment and supported-PID validators tested, but no real vehicle ready screen or successful diagnostic read exercised."
+    },
+    "permission": {
+      "status": "untested",
+      "evidence": "Inline Local Network and Bluetooth access guidance rendered. OS permission denial/grant flow not exercised."
+    }
+  },
+  "renderedEvidence": [
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-connect-light.png",
+      "observation": "Compact three-step rail, adapter selector and fixed glass primary action; readable light appearance."
+    },
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-connect-dark.png",
+      "observation": "Final compact connection rail in dark appearance with readable black text on mint primary action."
+    },
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-large-text.png",
+      "observation": "Accessibility-large text triggers vertical rail, wraps descriptive copy and keeps primary action legible; content scrolls."
+    },
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-recovery.png",
+      "observation": "Empty-host validation error after keyboard dismissal; Try again action remains available."
+    },
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-diagnostics-dark.png",
+      "observation": "Disconnected diagnostics shows unread state, no false no-fault success, and setup action."
+    },
+    {
+      "viewport": "iPhone 17 Pro portrait",
+      "artifact": "iphone-nissan.png",
+      "observation": "Real-adapter-only session setup; no Demo toggle or simulated values; setup CTA verified."
+    }
+  ],
+  "validation": {
+    "tests": 71,
+    "nativeBuilds": [
+      "iOS Simulator",
+      "macOS"
+    ],
+    "ipa": "packages/com.yourcompany.obd_0.0.1-6+debug.ipa",
+    "review": "Two review findings fixed: BLE idle discovery completion no longer becomes a connection failure; stored DTCs cleared at session boundaries and clear action requires current read."
+  }
+}

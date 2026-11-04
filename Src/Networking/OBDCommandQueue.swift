@@ -3,57 +3,81 @@ import Foundation
 actor OBDCommandQueue {
     private let transport: OBDTransporting
     private var pendingContinuation: CheckedContinuation<String, Error>?
-    private var pendingCommand: String?
+    private var pendingRequestID: UUID?
+    private var timeoutTask: Task<Void, Never>?
 
     init(transport: OBDTransporting) {
         self.transport = transport
     }
 
     func handleResponse(_ response: String) {
-        guard let continuation = pendingContinuation else { return }
-        pendingContinuation = nil
-        pendingCommand = nil
-        continuation.resume(returning: response)
+        completePending(with: .success(response))
     }
 
     func handleError(_ error: Error) {
-        guard let continuation = pendingContinuation else { return }
-        pendingContinuation = nil
-        pendingCommand = nil
-        continuation.resume(throwing: error)
+        completePending(with: .failure(error))
+    }
+
+    func cancelPending() {
+        completePending(with: .failure(CancellationError()))
+    }
+
+    /// Allow an in-flight generic request to finish before changing protocol sessions.
+    func waitUntilIdle(timeout: TimeInterval) async throws {
+        let deadline = Date().addingTimeInterval(max(0, timeout))
+        while pendingContinuation != nil {
+            try Task.checkCancellation()
+            guard Date() < deadline else { throw AppError.commandInProgress }
+            try await Task.sleep(nanoseconds: 10_000_000)
+        }
     }
 
     func send(_ command: String, timeout: TimeInterval) async throws -> String {
-        if pendingContinuation != nil {
-            throw AppError.commandInProgress
-        }
+        try Task.checkCancellation()
+        guard pendingContinuation == nil else { throw AppError.commandInProgress }
+        guard timeout.isFinite, timeout > 0 else { throw AppError.timeout(command) }
+        let requestID = UUID()
 
+        // Keep an in-flight request alive when its caller is cancelled. ELM has
+        // no response IDs, so session changes must drain the reply before reuse.
         return try await withCheckedThrowingContinuation { continuation in
             pendingContinuation = continuation
-            pendingCommand = command
-
+            pendingRequestID = requestID
+            timeoutTask = Task { [weak self] in
+                do {
+                    try await Task.sleep(for: .seconds(timeout))
+                } catch {
+                    return
+                }
+                await self?.timeoutIfStillPending(requestID: requestID, command: command)
+            }
             transport.send(command) { [weak self] result in
-                guard let self else { return }
-
-                switch result {
-                case .success:
-                    Task {
-                        try? await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
-                        await self.timeoutIfStillPending(command: command)
-                    }
-                case .failure(let error):
-                    Task {
-                        await self.handleError(error)
-                    }
+                if case .failure(let error) = result {
+                    Task { await self?.handleSendError(error, requestID: requestID) }
                 }
             }
         }
     }
 
-    private func timeoutIfStillPending(command: String) {
-        guard let continuation = pendingContinuation, pendingCommand == command else { return }
+    private func handleSendError(_ error: Error, requestID: UUID) {
+        guard pendingRequestID == requestID else { return }
+        completePending(with: .failure(error))
+    }
+
+    private func timeoutIfStillPending(requestID: UUID, command: String) {
+        guard pendingRequestID == requestID else { return }
+        completePending(with: .failure(AppError.timeout(command)))
+        // ELM replies carry no request identity. Close the connection so a late
+        // reply cannot be mistaken for the next command's response.
+        transport.disconnect()
+    }
+
+    private func completePending(with result: Result<String, Error>) {
+        guard let continuation = pendingContinuation else { return }
         pendingContinuation = nil
-        pendingCommand = nil
-        continuation.resume(throwing: AppError.timeout(command))
+        pendingRequestID = nil
+        timeoutTask?.cancel()
+        timeoutTask = nil
+        continuation.resume(with: result)
     }
 }

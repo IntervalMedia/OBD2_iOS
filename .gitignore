@@ -1,3 +1,7 @@
 .theos/
 packages/
 .DS_Store
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.build/

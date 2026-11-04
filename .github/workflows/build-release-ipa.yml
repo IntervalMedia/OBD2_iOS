@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-15
     env:
       THEOS: ${{ github.workspace }}/theos
       PACKAGE_FORMAT: ipa
@@ -40,7 +40,7 @@ jobs:
           set -euo pipefail
 
           brew update
-          brew install ldid make dpkg coreutils xz
+          brew install ldid make dpkg coreutils
 
           # Clone Theos (include submodules)
           git clone --depth 1 --recursive https://github.com/theos/theos.git "$THEOS"
@@ -48,16 +48,17 @@ jobs:
           # Bootstrap Theos vendor dependencies (fixes missing vendor/include + vendor/lib)
           "$THEOS/bin/update-theos"
 
-          # Install iPhoneOS16.5 SDK into $THEOS/sdks
+          # Use Xcode's installed SDK so the compiler and SDK remain compatible.
+          OBD_SDK_PATH="$(xcrun --sdk iphoneos --show-sdk-path)"
+          OBD_SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"
+          OBD_SDK_MAJOR="${OBD_SDK_VERSION%%.*}"
+          if [[ "$OBD_SDK_MAJOR" -lt 18 ]]; then
+            echo "iOS 18+ SDK required; found $OBD_SDK_VERSION" >&2
+            exit 1
+          fi
+          test -d "$OBD_SDK_PATH"
           mkdir -p "$THEOS/sdks"
-          curl -L "https://github.com/theos/sdks/releases/latest/download/iPhoneOS16.5.sdk.tar.xz" \
-            -o "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
-
-          xz -d "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
-          tar -xf "$THEOS/sdks/iPhoneOS16.5.sdk.tar" -C "$THEOS/sdks"
-          rm -f "$THEOS/sdks/iPhoneOS16.5.sdk.tar"
-
-          test -d "$THEOS/sdks/iPhoneOS16.5.sdk"
+          ln -s "$OBD_SDK_PATH" "$THEOS/sdks/iPhoneOS${OBD_SDK_VERSION}.sdk"
 
       - name: Build IPA
         shell: bash
@@ -91,19 +92,22 @@ jobs:
 
       - name: Resolve release metadata
         id: release
+        env:
+          MANUAL_RELEASE_TAG: ${{ github.event.inputs.release_tag }}
+          MANUAL_RELEASE_NAME: ${{ github.event.inputs.release_name }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             RELEASE_TAG="${GITHUB_REF_NAME}"
-          elif [[ -n "${{ github.event.inputs.release_tag }}" ]]; then
-            RELEASE_TAG="${{ github.event.inputs.release_tag }}"
+          elif [[ -n "${MANUAL_RELEASE_TAG}" ]]; then
+            RELEASE_TAG="${MANUAL_RELEASE_TAG}"
           else
             RELEASE_TAG="build-${GITHUB_RUN_NUMBER}"
           fi
 
-          if [[ -n "${{ github.event.inputs.release_name }}" ]]; then
-            RELEASE_NAME="${{ github.event.inputs.release_name }}"
+          if [[ -n "${MANUAL_RELEASE_NAME}" ]]; then
+            RELEASE_NAME="${MANUAL_RELEASE_NAME}"
           else
             RELEASE_NAME="IPA ${RELEASE_TAG}"
           fi
@@ -120,19 +124,22 @@ jobs:
       - name: Create GitHub release and upload IPA
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          RELEASE_NAME: ${{ steps.release.outputs.name }}
+          IPA_PATH: ${{ steps.ipa.outputs.path }}
         shell: bash
         run: |
           set -euo pipefail
-          if gh release view "${{ steps.release.outputs.tag }}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
-            gh release upload "${{ steps.release.outputs.tag }}" \
-              "${{ steps.ipa.outputs.path }}" \
+          if gh release view "${RELEASE_TAG}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            gh release upload "${RELEASE_TAG}" \
+              "${IPA_PATH}" \
               --repo "${GITHUB_REPOSITORY}" \
               --clobber
           else
-            gh release create "${{ steps.release.outputs.tag }}" \
-              "${{ steps.ipa.outputs.path }}" \
+            gh release create "${RELEASE_TAG}" \
+              "${IPA_PATH}" \
               --repo "${GITHUB_REPOSITORY}" \
               --target "${GITHUB_SHA}" \
-              --title "${{ steps.release.outputs.name }}" \
+              --title "${RELEASE_NAME}" \
               --generate-notes
           fi

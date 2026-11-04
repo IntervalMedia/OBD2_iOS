@@ -1,0 +1,496 @@
+[
+  {
+    "evidence_id": "ev_9e2196a6ce3307d05f65e589001d8931604293de9cdadb2ffea27e7e90a34635",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "m3"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_b63abbcb89b9d18b0a140c1654535de55b908573b976412ca09076700b5a7f33",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "m4"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "smali",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_0c5051424f81c836246997276f2166ac2122370be4a14f8ed53dcbf3c4654f5d",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "n4"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_5a8f3ef9d74aad0ba036b4ca6cd8f7390d9495b0365e6dc85783aa437f2227df",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "l3"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_59fdbda89e09ae333fd9446d0f5c1fba16f01992214c2e9377703d8d7593caea",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "r0"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_b5570a8bea09d6ba161d0a6ffabc78197bebb8e03f0e02240e5b48e7def6ea7b",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "C2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_644f77f53fe3b8216c3ffa3b8445b54c2ff20691f8cd3eb5066c4b6d230da628",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "l4"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_b0b45283ec87504a41ee675ecb7935a29fc4d65d62db4fd351454c93698f47aa",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "p4"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_8ba1ceb187996812ae5f2b1decc0d3fa3de66f13b0b798a3fb95ff2a0f6506cb",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "v2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_8ad6d77fa755e50461d1001c96a05d6da28606f8ebadab2c4b54e8df408800e3",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "w2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_ee2448c2cd2dfdb23193e4260e456069f383523062adf98d8544fb8d609773c8",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "b3"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_3161dc7eb7a97ba6997d38d44ad152c377465eda9fa41f765311550961b2e69a",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "T1"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_486823ec3dc8ce3a1978e14a9b0b364376a6e4591f7f73a0d3c91ba7644dc2e4",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "D2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_f97e2ac5dcd621d4b7d20bd69002feb97ac31e058d1c9a7ac70604c073f0e925",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "q2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_9784da6173422f204b6a37457c3c23d2a8a488c37882d9275a37f6a98b41c913",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "S1"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_c6c1c7eca5670e5bbea9ed43881e101e268b7a32831d8214e1266fc0b13a3a7e",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "N2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_559c19e5085f09b69f67ca447631e43cda00c553f2ba5c9ec2f00cb9a4ad42d9",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "h3"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_9d56c191baa52e8fb1e92ffc17728db4e9892d54e92a9efef73883fee72f911b",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "U2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  },
+  {
+    "evidence_id": "ev_c27c8d1b984b0f43bd544adabd5cebf33d1302cdfedb3e9d0b24536b020487eb",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk",
+      "class_name": "com.nissandatascan.ndatascaniiilite.MainActivity",
+      "method_name": "i2"
+    },
+    "subject": {
+      "name": "com.nissandatascan.ndatascaniiilite.apk",
+      "digest": {
+        "sha256": "db45043c991ac2f1e7e90865e378b63a55ad3972bc58d50da2d18baff7217f22"
+      },
+      "format": "apk",
+      "architecture": null,
+      "local_path": "/Users/cashies/Downloads/NDSIII+Lite_1.44_APKPure.xapk/com.nissandatascan.ndatascaniiilite.apk"
+    },
+    "representation": "java",
+    "source_status": "complete",
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ]
+  }
+]

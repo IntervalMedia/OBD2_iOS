@@ -28,7 +28,7 @@ enum OBDParser {
             return nil
         }
 
-        return Double((256 * a + b) / 4)
+        return Double(256 * a + b) / 4.0
     }
 
     static func parseSpeed(_ response: String) -> Int? {
@@ -158,6 +158,6 @@ enum OBDParser {
         let d3 = (b2 & 0b11110000) >> 4
         let d4 = b2 & 0b00001111
 
-        return "\(family)\(d1)\(d2)\(d3)\(d4)"
+        return String(format: "%@%X%X%X%X", family, d1, d2, d3, d4)
     }
 }

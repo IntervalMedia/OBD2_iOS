@@ -5,13 +5,9 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
-            Section("Command Timeout") {
-                HStack {
-                    Text("Timeout")
-                    Spacer()
-                    Text(String(format: "%.1f s", obd.settings.commandTimeoutSeconds))
-                }
-
+            Section {
+                LabeledContent("Timeout", value: String(format: "%.1f s", obd.settings.commandTimeoutSeconds))
+                    .monospacedDigit()
                 Slider(
                     value: Binding(
                         get: { obd.settings.commandTimeoutSeconds },
@@ -20,15 +16,16 @@ struct SettingsView: View {
                     in: 1.0...10.0,
                     step: 0.5
                 )
+                .accessibilityLabel("Command timeout")
+            } header: {
+                Text("Adapter response")
+            } footer: {
+                Text("How long to wait for each adapter command.")
             }
 
-            Section("Polling Interval") {
-                HStack {
-                    Text("Interval")
-                    Spacer()
-                    Text(String(format: "%.1f s", obd.settings.pollingIntervalSeconds))
-                }
-
+            Section {
+                LabeledContent("Interval", value: String(format: "%.1f s", obd.settings.pollingIntervalSeconds))
+                    .monospacedDigit()
                 Slider(
                     value: Binding(
                         get: { obd.settings.pollingIntervalSeconds },
@@ -37,9 +34,14 @@ struct SettingsView: View {
                     in: 0.5...5.0,
                     step: 0.5
                 )
+                .accessibilityLabel("Polling interval")
+            } header: {
+                Text("Live data")
+            } footer: {
+                Text("Time between live data requests. A longer interval reduces adapter traffic.")
             }
 
-            Section("Stored Samples") {
+            Section {
                 Stepper(
                     value: Binding(
                         get: { obd.settings.maxStoredSamples },
@@ -48,14 +50,17 @@ struct SettingsView: View {
                     in: 100...5000,
                     step: 100
                 ) {
-                    HStack {
-                        Text("Max samples")
-                        Spacer()
-                        Text("\(obd.settings.maxStoredSamples)")
-                    }
+                    LabeledContent("Sample limit", value: obd.settings.maxStoredSamples.formatted())
+                        .monospacedDigit()
                 }
+            } header: {
+                Text("History")
+            } footer: {
+                Text("Maximum number of generic OBD samples kept in memory.")
             }
         }
+        .formStyle(.grouped)
         .navigationTitle("Settings")
+        .appScreen()
     }
 }

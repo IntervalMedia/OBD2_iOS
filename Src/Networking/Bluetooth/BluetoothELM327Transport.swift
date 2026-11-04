@@ -114,9 +114,10 @@ final class BluetoothELM327Transport: NSObject, OBDTransporting {
     func scanForAdapters() async {
         switch centralManager.state {
         case .poweredOn:
-            queue.async { [weak self] in
+            let scanTask = DispatchWorkItem { [weak self] in
                 self?.beginScan()
             }
+            queue.async(execute: scanTask)
         case .poweredOff:
             emitScanningChanged(false)
             emitState(.waiting("Bluetooth is powered off"))
