@@ -1,0 +1,132 @@
+{
+  "evidence_id": "ev_6b4aa68d55f1070f80dd53bf8439b3cc8c056fcb89fa60cfa0af70f87e9a9b60",
+  "subject": {
+    "name": "d55357f5-245a-480f-99b0-1a5d1645a1cb-43f8e0d7-eaf5-44d2-b0d9-514c5e81186a-zip.zip",
+    "digest": {
+      "sha256": "f4688bb44ef46b59796d0e3cc07dccf55d932592a03bebaa4ced343616765dd2"
+    },
+    "format": "zip",
+    "architecture": null,
+    "local_path": "/Users/cashies/.t3/userdata/attachments/d55357f5-245a-480f-99b0-1a5d1645a1cb-43f8e0d7-eaf5-44d2-b0d9-514c5e81186a-zip.zip"
+  },
+  "limitations": [
+    "All regular files in the active artifact were materialized; nested archive contents remain represented by their containing file."
+  ],
+  "manifest": {
+    "manifest_id": "agm_8f6633cc1074e7def42c00ce12455996ec756983e321f63c175d0971889fc77e",
+    "root_artifact_id": "art_2d520ce9ab24c5f5fb3c14d4c201f00e8904c3d5b4984e096f1ff4342995ef19",
+    "root_sha256": "f4688bb44ef46b59796d0e3cc07dccf55d932592a03bebaa4ced343616765dd2",
+    "root_format": "zip",
+    "graph_sha256": "6bb0105cde4b0a38aaf8ff5af6a14ed9bb018e8a89f3597d1cf63fb366470282",
+    "node_count": 6305,
+    "occurrence_count": 6380,
+    "edge_count": 6379
+  },
+  "files": [
+    {
+      "artifact_id": "art_72a60d8cd05ebf3ab35bc35800c5c41fc92f2252054b0c807fcd3600a3aef5d2",
+      "relative_path": "resources/res/values/strings.xml",
+      "sha256": "a3433dba986b20171820760424953535e9e32b22ecbb025a63234261ad71082c",
+      "bytes_written": 155595,
+      "created": true
+    },
+    {
+      "artifact_id": "art_0bd45515e04dd55adca1e20282ed778756556b852f2ee8d110d36e16bd720f03",
+      "relative_path": "smali/gk0.smali",
+      "sha256": "4774c33ab408d2cf2cc76155087fea2edcb198bf904b5a3bc80a041add5c480b",
+      "bytes_written": 169706,
+      "created": true
+    },
+    {
+      "artifact_id": "art_44e44b11bb68d52a4ee7832ee81585683d1a746ba807dca6103ef7abe64e7647",
+      "relative_path": "smali/jk0.smali",
+      "sha256": "8d8c261d128ac6287da4ad1566a0f56045c0cc0702d1ca5e95fe47bb791996fc",
+      "bytes_written": 542978,
+      "created": true
+    },
+    {
+      "artifact_id": "art_fbab048097f5e7b694c1ed8fe52afa223505c6a002af79b0f568d54b5c164932",
+      "relative_path": "smali/uk0.smali",
+      "sha256": "b5a0aae937fb4617e497236b489309eb1204d5eff00364c488f7313f79a82fc9",
+      "bytes_written": 129758,
+      "created": true
+    },
+    {
+      "artifact_id": "art_646b6486c312473f279e0035911adc8b61c6de8af416188c2b3339328f228c63",
+      "relative_path": "smali/wk0.smali",
+      "sha256": "99360fa667ca4ca0aeb743a741f7e94798732b57563b39c1d0b5da954e3b20f3",
+      "bytes_written": 466454,
+      "created": true
+    },
+    {
+      "artifact_id": "art_d67f74216c215b80db9a8ab83b763d3b4c5314dbbb48d5e87fcbeaacf36ad513",
+      "relative_path": "sources/defpackage/g71.java",
+      "sha256": "27c84d6bde6afdce77261da1dc0ffe0dd6354ad0186948e0aec69e8ccb07379f",
+      "bytes_written": 42510,
+      "created": true
+    },
+    {
+      "artifact_id": "art_b55d2ae8004483e0a597402fe34024d8594d80b58ea9303406d6a3d13a805f85",
+      "relative_path": "sources/defpackage/gk0.java",
+      "sha256": "a603fdd9c425a568c2b0593498fc58252b8e0457ffd63a5568dd1a20b975314f",
+      "bytes_written": 27287,
+      "created": true
+    },
+    {
+      "artifact_id": "art_60bf216a9505503cc4b822662ef56ac5abd65af2842a87ce15001b6652954d90",
+      "relative_path": "sources/defpackage/jk0.java",
+      "sha256": "9c6a1a3ddb4dc4b7d6b603c9b35050ffe36b61ba46106391c715eae1df62673e",
+      "bytes_written": 108173,
+      "created": true
+    },
+    {
+      "artifact_id": "art_acdec9d55f68dd6bdadaea40e9cb61d0cd4fd18195387706f6fc62b2b62d0d43",
+      "relative_path": "sources/defpackage/ml0.java",
+      "sha256": "f59ead4680959c60835f16181faddbe0daf10f3ccc69c4d85cfc2f912c94c57f",
+      "bytes_written": 22934,
+      "created": true
+    },
+    {
+      "artifact_id": "art_76a70395e6a9408b818a314dd8e444dfe4e997f0165a53d79b1c5fff18d1ab98",
+      "relative_path": "sources/defpackage/pg1.java",
+      "sha256": "338fa9c6ad989183e10d360590aa11d465522ed32704efa96bf18a6dee0cecac",
+      "bytes_written": 8741,
+      "created": true
+    },
+    {
+      "artifact_id": "art_9ac005f88897668ccef9a14784a9acd5774ae44c90b4aba64d7288d477be8ee6",
+      "relative_path": "sources/defpackage/rg1.java",
+      "sha256": "69648fb0755dc536b0a7273a7be5621f3fbd27618fbd53698400dc62c403a3c0",
+      "bytes_written": 5435,
+      "created": true
+    },
+    {
+      "artifact_id": "art_e29e4e80451b4a8008e1bf1770e3926d587ea6dec7c90c51842cfe3e746067fb",
+      "relative_path": "sources/defpackage/rk0.java",
+      "sha256": "72e3f8e644735cce69cc6031a22e414831f5710c6bfbe2905850b45a14d705fe",
+      "bytes_written": 31068,
+      "created": true
+    },
+    {
+      "artifact_id": "art_79aa0a620c4e966ed99bd03615915376abd5b4058acd601f63574299e8b37a27",
+      "relative_path": "sources/defpackage/ti.java",
+      "sha256": "4900d458291b7cfc5277b12ba7663c632fd1b7b993b1f987360801cee8de98b2",
+      "bytes_written": 1263,
+      "created": true
+    },
+    {
+      "artifact_id": "art_cfb064f80fa3e45a624f0159f14321bc91720fc4a96b68b82579fe5ecbb64194",
+      "relative_path": "sources/defpackage/uk0.java",
+      "sha256": "23251602fadf06d1ad22fd9ae580bd0968dca726d1f69883dffdd9315d999d03",
+      "bytes_written": 30790,
+      "created": true
+    },
+    {
+      "artifact_id": "art_8e3f070e1bb5e7ad0b1226bf09717e9359e39838dbd4b9fe1e547dd147ba9a86",
+      "relative_path": "sources/defpackage/wk0.java",
+      "sha256": "505ff1a87bef5e33fd5bba0b7d55b8bcf556355be744f91d68446d1d9e50ea72",
+      "bytes_written": 132141,
+      "created": true
+    }
+  ]
+}

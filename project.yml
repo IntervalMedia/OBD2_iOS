@@ -1,0 +1,59 @@
+name: OBDMVP
+options:
+  bundleIdPrefix: com.yourcompany
+  deploymentTarget:
+    iOS: "18.0"
+    macOS: "15.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targetTemplates:
+  OBDApplication:
+    type: application
+    sources:
+      - path: Src
+      - path: Assets.xcassets
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.obd
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: OBDMVP
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: Connect to a local Wi-Fi OBD adapter for vehicle diagnostics.
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: Discover and connect to compatible Bluetooth LE OBD adapters.
+    dependencies:
+      - sdk: SwiftUI.framework
+      - sdk: Charts.framework
+      - sdk: Network.framework
+      - sdk: CoreBluetooth.framework
+targets:
+  OBDMVP-iOS:
+    templates: [OBDApplication]
+    platform: iOS
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+    dependencies:
+      - sdk: UIKit.framework
+  OBDMVP-macOS:
+    templates: [OBDApplication]
+    platform: macOS
+    settings:
+      base:
+        ENABLE_APP_SANDBOX: YES
+        ENABLE_OUTGOING_NETWORK_CONNECTIONS: YES
+        ENABLE_RESOURCE_ACCESS_BLUETOOTH: YES
+schemes:
+  OBDMVP-iOS:
+    build:
+      targets:
+        OBDMVP-iOS: all
+  OBDMVP-macOS:
+    build:
+      targets:
+        OBDMVP-macOS: all

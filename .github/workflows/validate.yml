@@ -1,0 +1,34 @@
+name: Validate Native Apps and Core
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: macos-15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Test deterministic core with coverage
+        run: swift test --enable-code-coverage
+
+      - name: Build native macOS application
+        run: >-
+          xcodebuild -project OBDMVP.xcodeproj -scheme OBDMVP-macOS
+          -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build
+
+      - name: Build iOS Simulator application
+        run: >-
+          xcodebuild -project OBDMVP.xcodeproj -scheme OBDMVP-iOS
+          -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build

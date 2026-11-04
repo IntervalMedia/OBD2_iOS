@@ -20,75 +20,53 @@ struct LiveChartView: View {
     }
 
     var body: some View {
-        VStack(spacing: 16) {
-            Picker("Metric", selection: $selectedMetric) {
-                ForEach(Metric.allCases) { metric in
-                    Text(metric.rawValue).tag(metric)
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
-
-            if chartSamples.isEmpty {
-                emptyStateView
-            } else {
-                Chart(chartSamples) { sample in
-                    if let yValue = value(for: sample) {
-                        AreaMark(
-                            x: .value("Time", sample.timestamp),
-                            y: .value(selectedMetric.rawValue, yValue)
-                        )
-                        .opacity(0.15)
-
-                        LineMark(
-                            x: .value("Time", sample.timestamp),
-                            y: .value(selectedMetric.rawValue, yValue)
-                        )
-                        .lineStyle(.init(lineWidth: 2))
-
-                        PointMark(
-                            x: .value("Time", sample.timestamp),
-                            y: .value(selectedMetric.rawValue, yValue)
-                        )
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                Picker("Metric", selection: $selectedMetric) {
+                    ForEach(Metric.allCases) { metric in
+                        Text(metric.rawValue).tag(metric)
                     }
                 }
-                .frame(height: 300)
-                .padding(.horizontal)
-            }
+                .pickerStyle(.segmented)
 
-            List {
-                Section("Chart Details") {
-                    Text("Metric: \(selectedMetric.rawValue)")
-                    Text("Points shown: \(chartSamples.count)")
-                }
-
-                Section("Latest") {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(selectedMetric.rawValue).font(.subheadline).foregroundStyle(.secondary)
                     Text(latestValueText)
+                        .font(.system(.largeTitle, design: .rounded, weight: .medium))
                         .monospacedDigit()
+                    Text("Latest reading · \(chartSamples.count) recent samples")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+
+                if chartSamples.isEmpty {
+                    ContentUnavailableView("No readings yet", systemImage: "chart.xyaxis.line",
+                        description: Text("Start polling in Live to see changes over time."))
+                        .frame(minHeight: 280)
+                } else {
+                    Chart(chartSamples) { sample in
+                        if let yValue = value(for: sample) {
+                            AreaMark(x: .value("Time", sample.timestamp),
+                                     y: .value(selectedMetric.rawValue, yValue))
+                                .foregroundStyle(.teal.opacity(0.08))
+                            LineMark(x: .value("Time", sample.timestamp),
+                                     y: .value(selectedMetric.rawValue, yValue))
+                                .foregroundStyle(.teal)
+                                .lineStyle(.init(lineWidth: 2))
+                        }
+                    }
+                    .chartXAxisLabel("Time")
+                    .frame(height: 320)
+                    .accessibilityLabel("Recent \(selectedMetric.rawValue) readings")
                 }
             }
+            .padding(24)
+            .background(Color.appCardBackground, in: RoundedRectangle(cornerRadius: 20))
+            .frame(maxWidth: 920)
+            .padding(20)
+            .frame(maxWidth: .infinity)
         }
+        .appScreen()
         .navigationTitle("Charts")
-        .background(Color(.systemGroupedBackground))
-    }
-
-    private var emptyStateView: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "chart.line.uptrend.xyaxis")
-                .font(.system(size: 34, weight: .semibold))
-                .foregroundStyle(.secondary)
-
-            Text("No live samples yet")
-                .font(.headline)
-
-            Text("Start live polling from the Live tab.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 32)
-        .padding(.horizontal)
     }
 
     private func value(for sample: LiveSample) -> Double? {

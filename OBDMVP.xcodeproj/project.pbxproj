@@ -1,0 +1,774 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0311DBEBB8EBAEBC0FD344B1 /* OBDCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0462A74B5A9443595BA9D /* OBDCommandBuilder.swift */; };
+		03BF843140D70369E7886BCE /* LogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0848703A0EDACFB16BE6587 /* LogStore.swift */; };
+		05E1B4400B97EEA9C68FA295 /* LogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0848703A0EDACFB16BE6587 /* LogStore.swift */; };
+		06263C849EB813FF95C9A3F5 /* ConnectionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39260A2CD86AD273FECD8F4D /* ConnectionPhase.swift */; };
+		07390DCF77D7694E05EC894D /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0421FF846D99DC8EF88D6F /* DashboardViewModel.swift */; };
+		09C1A69ADA77FC01575693B9 /* ECUIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61F024BB0A038CD870CDA34 /* ECUIdentity.swift */; };
+		09ED098969C6D5DD232974DA /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3619A7AB493DD3CE391B283 /* LogsView.swift */; };
+		0DB900B840D2F528E3B4CD5B /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD07A05D676BFB37E35B97 /* PersistenceStore.swift */; };
+		0E68B8F7F6D22535420A94D5 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E801978767853E01C64FBD8 /* OBDService.swift */; };
+		11D73671371EADAA455D3436 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83B104890F8481632E0988 /* ActivityViewController.swift */; };
+		12D59EAEBA93A3644CE69AE3 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E7AED6343895E61BE346 /* AppEnvironment.swift */; };
+		14D10985A69D53F2A23DBA96 /* OBDCommandQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FCEBA288A25A3B5A63D563 /* OBDCommandQueue.swift */; };
+		190CE0A2EDBC04DAFCE8D370 /* VehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F2562529D0D9E9985CBAA8 /* VehicleInfo.swift */; };
+		1BBB1BE28A0A74B60ADE77FE /* NissanSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75C991F5DF43F9DADABC52 /* NissanSessionService.swift */; };
+		1E85574F0C444961AFC3CCC4 /* OBDCommandQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FCEBA288A25A3B5A63D563 /* OBDCommandQueue.swift */; };
+		24332B3A9DF39F377719CAB9 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB7A562C4C88337471A46 /* DiagnosticsView.swift */; };
+		28AAD627FEF22F8F072501BD /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0421FF846D99DC8EF88D6F /* DashboardViewModel.swift */; };
+		2B9227C30D6765F6F4F5E075 /* NissanSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75C991F5DF43F9DADABC52 /* NissanSessionService.swift */; };
+		2DFE8F989AAD66406A1371FC /* OBDCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0462A74B5A9443595BA9D /* OBDCommandBuilder.swift */; };
+		327CFF0E1E532A6FB158D2E3 /* NissanECUProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B8DC11C92BD08D5FF42CC /* NissanECUProfile.swift */; };
+		37173DB5C4C0FB8E930CFD1B /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E597B59B463348B4B5F2CA21 /* ConnectionSettings.swift */; };
+		385B1060C3D9AEE0B1B0F295 /* ConnectionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39260A2CD86AD273FECD8F4D /* ConnectionPhase.swift */; };
+		3C8ACF8F60E601FC1AA02DDF /* NissanCVTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2F07F07261E9D84B4E9F1 /* NissanCVTClient.swift */; };
+		48FB2BB12F3E9A098D7636AC /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A414F17AADC0C128F387186 /* DiagnosticTroubleCode.swift */; };
+		560DC92296168028A8DA798C /* LiveChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A9E9F645A7D46051C5503 /* LiveChartView.swift */; };
+		570B427E8BE5718C04CAB107 /* NissanLogRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7F71FAF458B05C5EE1457 /* NissanLogRecord.swift */; };
+		59A281488E11DC21D4EEE08E /* AdapterResponseBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA241E71D84475912AE6A /* AdapterResponseBuffer.swift */; };
+		5A8217D544125CE8F23A8F54 /* OBDMVPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72BB176F6D7E74414AB540B /* OBDMVPApp.swift */; };
+		5AFFF93B454C07699F637C4C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68019A2E4360FCC1812BECE5 /* CoreBluetooth.framework */; };
+		5C17E4B26CFDBCD496E9874D /* VehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F2562529D0D9E9985CBAA8 /* VehicleInfo.swift */; };
+		5C31E8F00E187D6DD3C799BB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6311A791C817133FEE69C2 /* SwiftUI.framework */; };
+		5D7252326A087CE28A3C2631 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445E16440C3C88F999010790 /* Charts.framework */; };
+		5E7138C7644F9BE971B11A9D /* OBDParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF385B3925C4331DBC8AF2 /* OBDParser.swift */; };
+		63583E132359035173695D8C /* OBDTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4609C83A41A4798CBC41B49 /* OBDTransport.swift */; };
+		64412AE36AF659E659C4E99D /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE80A2FF6B0C293AC958D1 /* CSVExporter.swift */; };
+		658B1C85B315AFF29B1EC695 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B202CF252688972AC7C921 /* Protocol.swift */; };
+		6771C0AE7814E1112D23E962 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB7A562C4C88337471A46 /* DiagnosticsView.swift */; };
+		6B2ECBB191D59764059BF892 /* LiveSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56873AC7F2592345837F8D /* LiveSample.swift */; };
+		75B492E1ECA5B721348B73D0 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514A99C75F1C264AEC40D7F /* AppError.swift */; };
+		800F724BAFBD19F93F7F3660 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445E16440C3C88F999010790 /* Charts.framework */; };
+		80369B5CC302EFDF1BDD2440 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68019A2E4360FCC1812BECE5 /* CoreBluetooth.framework */; };
+		815CFB857709201662950778 /* PlatformStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5153DAC16F443FA9A3DE45 /* PlatformStyle.swift */; };
+		83824E530031BDF52A2F7C50 /* DiagnosticTroubleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A414F17AADC0C128F387186 /* DiagnosticTroubleCode.swift */; };
+		8429AD44F681E2E78A860CD6 /* BLEMessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD251E28BFD04E133894E2 /* BLEMessageProcessor.swift */; };
+		88AF10E5A7AA0495B7FD4683 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC7EF05463C11554333EAF4 /* Network.framework */; };
+		8AF6FA42CC27298DE8450685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E0075BD15A3D6F3317A71E /* Assets.xcassets */; };
+		8B0AB0832D5DA6F0EFE4D317 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E7AED6343895E61BE346 /* AppEnvironment.swift */; };
+		8D36651FC65232DF57E1312A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B202CF252688972AC7C921 /* Protocol.swift */; };
+		8D963A0857CD2FAAAD7A0B26 /* BLEMessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD251E28BFD04E133894E2 /* BLEMessageProcessor.swift */; };
+		8EC6679E238557D171F75748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E0075BD15A3D6F3317A71E /* Assets.xcassets */; };
+		981B9CCF3575943310E83114 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE80A2FF6B0C293AC958D1 /* CSVExporter.swift */; };
+		A213D14675FD4DD55A782EAE /* NissanDataLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82369B00ACFFB113665228E9 /* NissanDataLogger.swift */; };
+		A31392066665403EE46F6E37 /* NissanLogRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7F71FAF458B05C5EE1457 /* NissanLogRecord.swift */; };
+		A4BB746EB3873D545B085904 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A028B476F50591D7D6A85DAA /* SettingsView.swift */; };
+		AF953279630DB30E41627941 /* DiagnosticClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B223E94170373D7F4530497 /* DiagnosticClient.swift */; };
+		AFEC558B398C3BB1CC713780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6F28B703410EBCC8C48841 /* UIKit.framework */; };
+		B2BF8D15607BCEAA84B7BE4F /* ECUIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61F024BB0A038CD870CDA34 /* ECUIdentity.swift */; };
+		B6E01B141AB9598B34A35B28 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6311A791C817133FEE69C2 /* SwiftUI.framework */; };
+		B8F18C8AEA90D7663333BA6B /* NissanECUProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B8DC11C92BD08D5FF42CC /* NissanECUProfile.swift */; };
+		BAFEE351510AAE1FB91D9819 /* NissanWorkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4D2F939B59DD1892DDBB6 /* NissanWorkSupport.swift */; };
+		BE29CB1BEAB9F2542BDA4A8B /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1A1D1D2E6608ED902073 /* Date+Formatting.swift */; };
+		C23A51121C757F7CB054B5D4 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D9347EF915F0284959FF7 /* ConnectionView.swift */; };
+		C347F9DF22441CCC5E665C10 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514A99C75F1C264AEC40D7F /* AppError.swift */; };
+		C6B9CD5DAD3D3BA7EECC7CE3 /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD07A05D676BFB37E35B97 /* PersistenceStore.swift */; };
+		C6F1B5DB8896EABF9919135F /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC7EF05463C11554333EAF4 /* Network.framework */; };
+		C9C2B2CE99D4BDFB3979FBEF /* OBDMVPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72BB176F6D7E74414AB540B /* OBDMVPApp.swift */; };
+		CAA8797789DDA33B85CA08B0 /* DiagnosticClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B223E94170373D7F4530497 /* DiagnosticClient.swift */; };
+		CC6895F1806587989D02E751 /* BluetoothELM327Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50076CC8A0441F514B472EFB /* BluetoothELM327Transport.swift */; };
+		D0E4C06C0A886A9EB3B05AD6 /* OBDTransporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE055DDAD11454F606632FC1 /* OBDTransporting.swift */; };
+		D1952082E85B165D38F6ACBF /* NissanDataLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82369B00ACFFB113665228E9 /* NissanDataLogger.swift */; };
+		D69679E1629068D793AB64CF /* NissanWorkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4D2F939B59DD1892DDBB6 /* NissanWorkSupport.swift */; };
+		D7659326EF5802A21CCC691F /* NissanDiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CEF24182852942696B7C5 /* NissanDiagnosticsView.swift */; };
+		D898AC6C0563D6CED86D227B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83B104890F8481632E0988 /* ActivityViewController.swift */; };
+		DE3418A2B7F6938717F8831B /* OBDParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF385B3925C4331DBC8AF2 /* OBDParser.swift */; };
+		E05EE15D8B9FCE963ED15B3C /* NissanDiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CEF24182852942696B7C5 /* NissanDiagnosticsView.swift */; };
+		E0F29440924FD761B6787D85 /* OBDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E801978767853E01C64FBD8 /* OBDService.swift */; };
+		E19500817BAA79B281AF0DB9 /* AdapterResponseBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FA241E71D84475912AE6A /* AdapterResponseBuffer.swift */; };
+		E61A66E70BF30961B905C3C9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D4FC83E3FBD40A83E6799 /* DashboardView.swift */; };
+		F135DD0E564AE15730F57D42 /* OBDTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4609C83A41A4798CBC41B49 /* OBDTransport.swift */; };
+		F1BF032B8B621375999D810B /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3619A7AB493DD3CE391B283 /* LogsView.swift */; };
+		F23134E88C3614F2C3F5526E /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D9347EF915F0284959FF7 /* ConnectionView.swift */; };
+		F26EA264291EC8EB3EE9BD32 /* OBDTransporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE055DDAD11454F606632FC1 /* OBDTransporting.swift */; };
+		F2D42D2C81137C60E72167E3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8D4FC83E3FBD40A83E6799 /* DashboardView.swift */; };
+		F3E022138CED3CDF95A90013 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A028B476F50591D7D6A85DAA /* SettingsView.swift */; };
+		F53951AB498103A90EEFA60B /* NissanCVTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2F07F07261E9D84B4E9F1 /* NissanCVTClient.swift */; };
+		F64534AE7282BD07A75C0697 /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E597B59B463348B4B5F2CA21 /* ConnectionSettings.swift */; };
+		F8075BDC0D3CF12D4854D0EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0B5771FA18A25ED98C682 /* ContentView.swift */; };
+		FA29B13C6187A74FA2022ECF /* LiveSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56873AC7F2592345837F8D /* LiveSample.swift */; };
+		FA3F86AB9D911361919FF36A /* BluetoothELM327Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50076CC8A0441F514B472EFB /* BluetoothELM327Transport.swift */; };
+		FD3F77CF5A261054D79745BA /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1A1D1D2E6608ED902073 /* Date+Formatting.swift */; };
+		FDA3F96F0F5A1B9A7834C2EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0B5771FA18A25ED98C682 /* ContentView.swift */; };
+		FDEC41420AACA2DD4E282E4D /* LiveChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A9E9F645A7D46051C5503 /* LiveChartView.swift */; };
+		FECFF68BFFE1A91F771EBB80 /* PlatformStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5153DAC16F443FA9A3DE45 /* PlatformStyle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07AD251E28BFD04E133894E2 /* BLEMessageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEMessageProcessor.swift; sourceTree = "<group>"; };
+		0D6F28B703410EBCC8C48841 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		11BD07A05D676BFB37E35B97 /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
+		182FA241E71D84475912AE6A /* AdapterResponseBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterResponseBuffer.swift; sourceTree = "<group>"; };
+		27C7F71FAF458B05C5EE1457 /* NissanLogRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanLogRecord.swift; sourceTree = "<group>"; };
+		38F2562529D0D9E9985CBAA8 /* VehicleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfo.swift; sourceTree = "<group>"; };
+		39260A2CD86AD273FECD8F4D /* ConnectionPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionPhase.swift; sourceTree = "<group>"; };
+		3D0D2A492E98324EE1455DA3 /* OBDMVP-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OBDMVP-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		445E16440C3C88F999010790 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
+		45F4D2F939B59DD1892DDBB6 /* NissanWorkSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanWorkSupport.swift; sourceTree = "<group>"; };
+		4AA2F07F07261E9D84B4E9F1 /* NissanCVTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanCVTClient.swift; sourceTree = "<group>"; };
+		4C5153DAC16F443FA9A3DE45 /* PlatformStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformStyle.swift; sourceTree = "<group>"; };
+		4C6311A791C817133FEE69C2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		50076CC8A0441F514B472EFB /* BluetoothELM327Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothELM327Transport.swift; sourceTree = "<group>"; };
+		50FCEBA288A25A3B5A63D563 /* OBDCommandQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDCommandQueue.swift; sourceTree = "<group>"; };
+		53CE80A2FF6B0C293AC958D1 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		68019A2E4360FCC1812BECE5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		688A9E9F645A7D46051C5503 /* LiveChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChartView.swift; sourceTree = "<group>"; };
+		68E0075BD15A3D6F3317A71E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D75C991F5DF43F9DADABC52 /* NissanSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanSessionService.swift; sourceTree = "<group>"; };
+		747CEF24182852942696B7C5 /* NissanDiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanDiagnosticsView.swift; sourceTree = "<group>"; };
+		7A0421FF846D99DC8EF88D6F /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		7A414F17AADC0C128F387186 /* DiagnosticTroubleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticTroubleCode.swift; sourceTree = "<group>"; };
+		7BA0B5771FA18A25ED98C682 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7CC7EF05463C11554333EAF4 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		82369B00ACFFB113665228E9 /* NissanDataLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanDataLogger.swift; sourceTree = "<group>"; };
+		83EF385B3925C4331DBC8AF2 /* OBDParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDParser.swift; sourceTree = "<group>"; };
+		8B223E94170373D7F4530497 /* DiagnosticClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticClient.swift; sourceTree = "<group>"; };
+		8E801978767853E01C64FBD8 /* OBDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDService.swift; sourceTree = "<group>"; };
+		8FEAB7A562C4C88337471A46 /* DiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsView.swift; sourceTree = "<group>"; };
+		A028B476F50591D7D6A85DAA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A163E7AED6343895E61BE346 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		A4609C83A41A4798CBC41B49 /* OBDTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransport.swift; sourceTree = "<group>"; };
+		B514A99C75F1C264AEC40D7F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B72BB176F6D7E74414AB540B /* OBDMVPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDMVPApp.swift; sourceTree = "<group>"; };
+		B9B202CF252688972AC7C921 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		BB8D4FC83E3FBD40A83E6799 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		BC83B104890F8481632E0988 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		C0848703A0EDACFB16BE6587 /* LogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogStore.swift; sourceTree = "<group>"; };
+		C1E378A40AC9AA07E8688B4E /* OBDMVP-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "OBDMVP-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CC1A1D1D2E6608ED902073 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
+		C61F024BB0A038CD870CDA34 /* ECUIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUIdentity.swift; sourceTree = "<group>"; };
+		DC56873AC7F2592345837F8D /* LiveSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSample.swift; sourceTree = "<group>"; };
+		DE8D9347EF915F0284959FF7 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		E3619A7AB493DD3CE391B283 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		E597B59B463348B4B5F2CA21 /* ConnectionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettings.swift; sourceTree = "<group>"; };
+		EBB0462A74B5A9443595BA9D /* OBDCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDCommandBuilder.swift; sourceTree = "<group>"; };
+		FE055DDAD11454F606632FC1 /* OBDTransporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDTransporting.swift; sourceTree = "<group>"; };
+		FE5B8DC11C92BD08D5FF42CC /* NissanECUProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NissanECUProfile.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB2D983C15A0B7D2DE49DDEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C31E8F00E187D6DD3C799BB /* SwiftUI.framework in Frameworks */,
+				5D7252326A087CE28A3C2631 /* Charts.framework in Frameworks */,
+				88AF10E5A7AA0495B7FD4683 /* Network.framework in Frameworks */,
+				5AFFF93B454C07699F637C4C /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA8B9801B5AC9D544A3A80F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6E01B141AB9598B34A35B28 /* SwiftUI.framework in Frameworks */,
+				800F724BAFBD19F93F7F3660 /* Charts.framework in Frameworks */,
+				C6F1B5DB8896EABF9919135F /* Network.framework in Frameworks */,
+				80369B5CC302EFDF1BDD2440 /* CoreBluetooth.framework in Frameworks */,
+				AFEC558B398C3BB1CC713780 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F4F83FB30BE53FE87700A4A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				182FA241E71D84475912AE6A /* AdapterResponseBuffer.swift */,
+				50FCEBA288A25A3B5A63D563 /* OBDCommandQueue.swift */,
+				A4609C83A41A4798CBC41B49 /* OBDTransport.swift */,
+				FE055DDAD11454F606632FC1 /* OBDTransporting.swift */,
+				4BA3580CA725842CD1312C9B /* Bluetooth */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		18FAF380ACB8D7519741E617 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1E378A40AC9AA07E8688B4E /* OBDMVP-iOS.app */,
+				3D0D2A492E98324EE1455DA3 /* OBDMVP-macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		242E26C70DAB00C59CB2EC46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				445E16440C3C88F999010790 /* Charts.framework */,
+				68019A2E4360FCC1812BECE5 /* CoreBluetooth.framework */,
+				7CC7EF05463C11554333EAF4 /* Network.framework */,
+				4C6311A791C817133FEE69C2 /* SwiftUI.framework */,
+				0D6F28B703410EBCC8C48841 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FA567DBF204E17C618887FA = {
+			isa = PBXGroup;
+			children = (
+				68E0075BD15A3D6F3317A71E /* Assets.xcassets */,
+				F2691257697B8264E5279D5E /* Src */,
+				242E26C70DAB00C59CB2EC46 /* Frameworks */,
+				18FAF380ACB8D7519741E617 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BA3580CA725842CD1312C9B /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				07AD251E28BFD04E133894E2 /* BLEMessageProcessor.swift */,
+				50076CC8A0441F514B472EFB /* BluetoothELM327Transport.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		954FEAD646C099D8458CBC2A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B514A99C75F1C264AEC40D7F /* AppError.swift */,
+				C4CC1A1D1D2E6608ED902073 /* Date+Formatting.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9C67F687CF2FA25E9D9CC22F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7A0421FF846D99DC8EF88D6F /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A531B63B7D506355CD76C32C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39260A2CD86AD273FECD8F4D /* ConnectionPhase.swift */,
+				E597B59B463348B4B5F2CA21 /* ConnectionSettings.swift */,
+				7A414F17AADC0C128F387186 /* DiagnosticTroubleCode.swift */,
+				DC56873AC7F2592345837F8D /* LiveSample.swift */,
+				27C7F71FAF458B05C5EE1457 /* NissanLogRecord.swift */,
+				38F2562529D0D9E9985CBAA8 /* VehicleInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A9B8A52FEEACAF985D6968DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC83B104890F8481632E0988 /* ActivityViewController.swift */,
+				DE8D9347EF915F0284959FF7 /* ConnectionView.swift */,
+				7BA0B5771FA18A25ED98C682 /* ContentView.swift */,
+				BB8D4FC83E3FBD40A83E6799 /* DashboardView.swift */,
+				8FEAB7A562C4C88337471A46 /* DiagnosticsView.swift */,
+				688A9E9F645A7D46051C5503 /* LiveChartView.swift */,
+				E3619A7AB493DD3CE391B283 /* LogsView.swift */,
+				747CEF24182852942696B7C5 /* NissanDiagnosticsView.swift */,
+				4C5153DAC16F443FA9A3DE45 /* PlatformStyle.swift */,
+				A028B476F50591D7D6A85DAA /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAE8FB90174A76CFEAE1D65E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A163E7AED6343895E61BE346 /* AppEnvironment.swift */,
+				B72BB176F6D7E74414AB540B /* OBDMVPApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D66CB899B3EE66E7F7635654 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				53CE80A2FF6B0C293AC958D1 /* CSVExporter.swift */,
+				C0848703A0EDACFB16BE6587 /* LogStore.swift */,
+				6D75C991F5DF43F9DADABC52 /* NissanSessionService.swift */,
+				EBB0462A74B5A9443595BA9D /* OBDCommandBuilder.swift */,
+				83EF385B3925C4331DBC8AF2 /* OBDParser.swift */,
+				8E801978767853E01C64FBD8 /* OBDService.swift */,
+				11BD07A05D676BFB37E35B97 /* PersistenceStore.swift */,
+				E7511BEF0E6A3AA140043B18 /* NissanCore */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7511BEF0E6A3AA140043B18 /* NissanCore */ = {
+			isa = PBXGroup;
+			children = (
+				8B223E94170373D7F4530497 /* DiagnosticClient.swift */,
+				C61F024BB0A038CD870CDA34 /* ECUIdentity.swift */,
+				4AA2F07F07261E9D84B4E9F1 /* NissanCVTClient.swift */,
+				82369B00ACFFB113665228E9 /* NissanDataLogger.swift */,
+				FE5B8DC11C92BD08D5FF42CC /* NissanECUProfile.swift */,
+				45F4D2F939B59DD1892DDBB6 /* NissanWorkSupport.swift */,
+				B9B202CF252688972AC7C921 /* Protocol.swift */,
+			);
+			path = NissanCore;
+			sourceTree = "<group>";
+		};
+		F2691257697B8264E5279D5E /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				CAE8FB90174A76CFEAE1D65E /* App */,
+				A531B63B7D506355CD76C32C /* Models */,
+				0F4F83FB30BE53FE87700A4A /* Networking */,
+				D66CB899B3EE66E7F7635654 /* Services */,
+				954FEAD646C099D8458CBC2A /* Utilities */,
+				9C67F687CF2FA25E9D9CC22F /* ViewModels */,
+				A9B8A52FEEACAF985D6968DA /* Views */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55A4C7903093603D425902C9 /* OBDMVP-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49B51FE3B0D42DB3C0D173F1 /* Build configuration list for PBXNativeTarget "OBDMVP-macOS" */;
+			buildPhases = (
+				058AB5624617B29330D73B37 /* Sources */,
+				3B43EE677CFBA15FEC8FEFAC /* Resources */,
+				CB2D983C15A0B7D2DE49DDEF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OBDMVP-macOS";
+			packageProductDependencies = (
+			);
+			productName = "OBDMVP-macOS";
+			productReference = 3D0D2A492E98324EE1455DA3 /* OBDMVP-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		86F1EDB774A0962C2074A646 /* OBDMVP-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCC3FED15588F5A8DDE44550 /* Build configuration list for PBXNativeTarget "OBDMVP-iOS" */;
+			buildPhases = (
+				4704B9AB752F1BE0FA69D6AC /* Sources */,
+				971728C3B2ED35A399D85F23 /* Resources */,
+				DA8B9801B5AC9D544A3A80F1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OBDMVP-iOS";
+			packageProductDependencies = (
+			);
+			productName = "OBDMVP-iOS";
+			productReference = C1E378A40AC9AA07E8688B4E /* OBDMVP-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AF9407A5FE668A1FE14C2B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					55A4C7903093603D425902C9 = {
+						ProvisioningStyle = Automatic;
+					};
+					86F1EDB774A0962C2074A646 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D650E3E48B24DBE3D85EE3D8 /* Build configuration list for PBXProject "OBDMVP" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3FA567DBF204E17C618887FA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 18FAF380ACB8D7519741E617 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86F1EDB774A0962C2074A646 /* OBDMVP-iOS */,
+				55A4C7903093603D425902C9 /* OBDMVP-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B43EE677CFBA15FEC8FEFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EC6679E238557D171F75748 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971728C3B2ED35A399D85F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AF6FA42CC27298DE8450685 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		058AB5624617B29330D73B37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D73671371EADAA455D3436 /* ActivityViewController.swift in Sources */,
+				E19500817BAA79B281AF0DB9 /* AdapterResponseBuffer.swift in Sources */,
+				8B0AB0832D5DA6F0EFE4D317 /* AppEnvironment.swift in Sources */,
+				75B492E1ECA5B721348B73D0 /* AppError.swift in Sources */,
+				8429AD44F681E2E78A860CD6 /* BLEMessageProcessor.swift in Sources */,
+				FA3F86AB9D911361919FF36A /* BluetoothELM327Transport.swift in Sources */,
+				981B9CCF3575943310E83114 /* CSVExporter.swift in Sources */,
+				06263C849EB813FF95C9A3F5 /* ConnectionPhase.swift in Sources */,
+				37173DB5C4C0FB8E930CFD1B /* ConnectionSettings.swift in Sources */,
+				F23134E88C3614F2C3F5526E /* ConnectionView.swift in Sources */,
+				F8075BDC0D3CF12D4854D0EF /* ContentView.swift in Sources */,
+				E61A66E70BF30961B905C3C9 /* DashboardView.swift in Sources */,
+				28AAD627FEF22F8F072501BD /* DashboardViewModel.swift in Sources */,
+				BE29CB1BEAB9F2542BDA4A8B /* Date+Formatting.swift in Sources */,
+				CAA8797789DDA33B85CA08B0 /* DiagnosticClient.swift in Sources */,
+				83824E530031BDF52A2F7C50 /* DiagnosticTroubleCode.swift in Sources */,
+				24332B3A9DF39F377719CAB9 /* DiagnosticsView.swift in Sources */,
+				B2BF8D15607BCEAA84B7BE4F /* ECUIdentity.swift in Sources */,
+				560DC92296168028A8DA798C /* LiveChartView.swift in Sources */,
+				FA29B13C6187A74FA2022ECF /* LiveSample.swift in Sources */,
+				05E1B4400B97EEA9C68FA295 /* LogStore.swift in Sources */,
+				09ED098969C6D5DD232974DA /* LogsView.swift in Sources */,
+				3C8ACF8F60E601FC1AA02DDF /* NissanCVTClient.swift in Sources */,
+				A213D14675FD4DD55A782EAE /* NissanDataLogger.swift in Sources */,
+				D7659326EF5802A21CCC691F /* NissanDiagnosticsView.swift in Sources */,
+				327CFF0E1E532A6FB158D2E3 /* NissanECUProfile.swift in Sources */,
+				A31392066665403EE46F6E37 /* NissanLogRecord.swift in Sources */,
+				2B9227C30D6765F6F4F5E075 /* NissanSessionService.swift in Sources */,
+				BAFEE351510AAE1FB91D9819 /* NissanWorkSupport.swift in Sources */,
+				0311DBEBB8EBAEBC0FD344B1 /* OBDCommandBuilder.swift in Sources */,
+				1E85574F0C444961AFC3CCC4 /* OBDCommandQueue.swift in Sources */,
+				C9C2B2CE99D4BDFB3979FBEF /* OBDMVPApp.swift in Sources */,
+				5E7138C7644F9BE971B11A9D /* OBDParser.swift in Sources */,
+				0E68B8F7F6D22535420A94D5 /* OBDService.swift in Sources */,
+				63583E132359035173695D8C /* OBDTransport.swift in Sources */,
+				F26EA264291EC8EB3EE9BD32 /* OBDTransporting.swift in Sources */,
+				C6B9CD5DAD3D3BA7EECC7CE3 /* PersistenceStore.swift in Sources */,
+				FECFF68BFFE1A91F771EBB80 /* PlatformStyle.swift in Sources */,
+				658B1C85B315AFF29B1EC695 /* Protocol.swift in Sources */,
+				A4BB746EB3873D545B085904 /* SettingsView.swift in Sources */,
+				5C17E4B26CFDBCD496E9874D /* VehicleInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4704B9AB752F1BE0FA69D6AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D898AC6C0563D6CED86D227B /* ActivityViewController.swift in Sources */,
+				59A281488E11DC21D4EEE08E /* AdapterResponseBuffer.swift in Sources */,
+				12D59EAEBA93A3644CE69AE3 /* AppEnvironment.swift in Sources */,
+				C347F9DF22441CCC5E665C10 /* AppError.swift in Sources */,
+				8D963A0857CD2FAAAD7A0B26 /* BLEMessageProcessor.swift in Sources */,
+				CC6895F1806587989D02E751 /* BluetoothELM327Transport.swift in Sources */,
+				64412AE36AF659E659C4E99D /* CSVExporter.swift in Sources */,
+				385B1060C3D9AEE0B1B0F295 /* ConnectionPhase.swift in Sources */,
+				F64534AE7282BD07A75C0697 /* ConnectionSettings.swift in Sources */,
+				C23A51121C757F7CB054B5D4 /* ConnectionView.swift in Sources */,
+				FDA3F96F0F5A1B9A7834C2EE /* ContentView.swift in Sources */,
+				F2D42D2C81137C60E72167E3 /* DashboardView.swift in Sources */,
+				07390DCF77D7694E05EC894D /* DashboardViewModel.swift in Sources */,
+				FD3F77CF5A261054D79745BA /* Date+Formatting.swift in Sources */,
+				AF953279630DB30E41627941 /* DiagnosticClient.swift in Sources */,
+				48FB2BB12F3E9A098D7636AC /* DiagnosticTroubleCode.swift in Sources */,
+				6771C0AE7814E1112D23E962 /* DiagnosticsView.swift in Sources */,
+				09C1A69ADA77FC01575693B9 /* ECUIdentity.swift in Sources */,
+				FDEC41420AACA2DD4E282E4D /* LiveChartView.swift in Sources */,
+				6B2ECBB191D59764059BF892 /* LiveSample.swift in Sources */,
+				03BF843140D70369E7886BCE /* LogStore.swift in Sources */,
+				F1BF032B8B621375999D810B /* LogsView.swift in Sources */,
+				F53951AB498103A90EEFA60B /* NissanCVTClient.swift in Sources */,
+				D1952082E85B165D38F6ACBF /* NissanDataLogger.swift in Sources */,
+				E05EE15D8B9FCE963ED15B3C /* NissanDiagnosticsView.swift in Sources */,
+				B8F18C8AEA90D7663333BA6B /* NissanECUProfile.swift in Sources */,
+				570B427E8BE5718C04CAB107 /* NissanLogRecord.swift in Sources */,
+				1BBB1BE28A0A74B60ADE77FE /* NissanSessionService.swift in Sources */,
+				D69679E1629068D793AB64CF /* NissanWorkSupport.swift in Sources */,
+				2DFE8F989AAD66406A1371FC /* OBDCommandBuilder.swift in Sources */,
+				14D10985A69D53F2A23DBA96 /* OBDCommandQueue.swift in Sources */,
+				5A8217D544125CE8F23A8F54 /* OBDMVPApp.swift in Sources */,
+				DE3418A2B7F6938717F8831B /* OBDParser.swift in Sources */,
+				E0F29440924FD761B6787D85 /* OBDService.swift in Sources */,
+				F135DD0E564AE15730F57D42 /* OBDTransport.swift in Sources */,
+				D0E4C06C0A886A9EB3B05AD6 /* OBDTransporting.swift in Sources */,
+				0DB900B840D2F528E3B4CD5B /* PersistenceStore.swift in Sources */,
+				815CFB857709201662950778 /* PlatformStyle.swift in Sources */,
+				8D36651FC65232DF57E1312A /* Protocol.swift in Sources */,
+				F3E022138CED3CDF95A90013 /* SettingsView.swift in Sources */,
+				190CE0A2EDBC04DAFCE8D370 /* VehicleInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5E61C54E502EB38AF4F6D073 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		787EE7D4870D18EFF2F0500B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OBDMVP;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Discover and connect to compatible Bluetooth LE OBD adapters.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to a local Wi-Fi OBD adapter for vehicle diagnostics.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.obd;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89586CFAFBDE739DEDAFA089 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OBDMVP;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Discover and connect to compatible Bluetooth LE OBD adapters.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to a local Wi-Fi OBD adapter for vehicle diagnostics.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.obd;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CD4734B7D8CD60393A5732FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OBDMVP;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Discover and connect to compatible Bluetooth LE OBD adapters.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to a local Wi-Fi OBD adapter for vehicle diagnostics.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.obd;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3B674D6FCB42523681A9DC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F9A0A63F14E3C88495A3F69C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OBDMVP;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Discover and connect to compatible Bluetooth LE OBD adapters.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to a local Wi-Fi OBD adapter for vehicle diagnostics.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.obd;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49B51FE3B0D42DB3C0D173F1 /* Build configuration list for PBXNativeTarget "OBDMVP-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89586CFAFBDE739DEDAFA089 /* Debug */,
+				F9A0A63F14E3C88495A3F69C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D650E3E48B24DBE3D85EE3D8 /* Build configuration list for PBXProject "OBDMVP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E61C54E502EB38AF4F6D073 /* Debug */,
+				F3B674D6FCB42523681A9DC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FCC3FED15588F5A8DDE44550 /* Build configuration list for PBXNativeTarget "OBDMVP-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				787EE7D4870D18EFF2F0500B /* Debug */,
+				CD4734B7D8CD60393A5732FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AF9407A5FE668A1FE14C2B6 /* Project object */;
+}

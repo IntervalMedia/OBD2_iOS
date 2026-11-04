@@ -1,0 +1,18 @@
+{
+  "surface": "OBDMVP native iOS and macOS diagnostic workspace",
+  "job": "Connect a real adapter, verify vehicle communication, then read live data or diagnose faults without guessing setup order.",
+  "direction": "Quiet instrument panel: warm neutral surfaces, graphite typography, petrol-teal actions and amber attention. A numbered connection rail is the memorable detail.",
+  "primaryAction": "Connect and prepare: connect transport then validate initialization and the vehicle response. Ready state offers Open live readings, never auto-starts polling or ECU writes.",
+  "hierarchy": ["Current setup stage and next action", "Three-step preparation checklist", "Connection type and adapter selection", "Advanced network fields", "Recoverable status or ready destinations"],
+  "targetViewports": ["iPhone 17 Pro portrait", "macOS 1100x800"],
+  "reference": "Existing ConnectionView exposed four equally weighted commands with no progression. Dashboard showed empty metric cards before connection. Nissan defaulted to simulated mode. Replace these observed friction points with guided states and real-data-only operation.",
+  "constraints": ["iOS18/macOS15 fallbacks", "Native Liquid Glass only in fixed controls on version26", "No glass inside scrolling content", "Dynamic Type and wrapping labels", "44pt primary controls", "No decorative animation; honor Reduce Motion", "No automatic service writes"],
+  "states": {
+    "loading": "Connecting and initializing display stage progress plus Cancel; configuration locked while active.",
+    "empty": "Offline prompts plug adapter, ignition on, join Wi-Fi/select BLE; one connection action.",
+    "error": "Specific setup failure with retry and connection settings still accessible.",
+    "partial": "Missing VIN or unsupported readings shown as unavailable; ready status requires supported-PID response, not VIN.",
+    "success": "Vehicle communication confirmed; open Live or Diagnostics.",
+    "permission": "Inline local-network/Bluetooth access explanation, actionable system-permission recovery when denied. Never pretend access granted."
+  }
+}
