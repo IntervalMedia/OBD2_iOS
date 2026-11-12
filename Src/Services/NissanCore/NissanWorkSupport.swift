@@ -17,9 +17,14 @@ public struct NissanWorkSupportCapabilities: Sendable, Equatable {
             throw DiagnosticError.unexpectedResponse
         }
         // Bit 32 is not a function ID. EconTool enumerates only bits 1…31.
-        return Set((0..<31).compactMap { bit in
-            bytes[2 + bit / 8] & (0x80 >> (bit % 8)) != 0 ? base + UInt8(bit + 1) : nil
-        })
+        var supported: Set<UInt8> = []
+        for bit in 0..<31 {
+            let mask: UInt8 = 0x80 >> (bit % 8)
+            if bytes[2 + bit / 8] & mask != 0 {
+                supported.insert(base + UInt8(bit + 1))
+            }
+        }
+        return supported
     }
 }
 

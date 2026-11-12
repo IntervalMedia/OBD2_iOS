@@ -41,8 +41,13 @@ public enum SupportedRegisters {
         let bytes = try ELMPayload.decode(response: response, command: command)
         guard bytes.count == 7, bytes[0] == 0x62, bytes[1] == UInt8(base >> 8),
               bytes[2] == UInt8(base & 255), base <= UInt16.max - 32 else { throw DiagnosticError.unexpectedResponse }
-        return Set((0..<32).compactMap { bit in
-            bytes[3 + bit / 8] & (0x80 >> (bit % 8)) != 0 ? base + UInt16(bit + 1) : nil
-        })
+        var supported: Set<UInt16> = []
+        for bit in 0..<32 {
+            let mask: UInt8 = 0x80 >> (bit % 8)
+            if bytes[3 + bit / 8] & mask != 0 {
+                supported.insert(base + UInt16(bit + 1))
+            }
+        }
+        return supported
     }
 }
