@@ -27,6 +27,13 @@ final class ProfileTests: XCTestCase {
         XCTAssertThrowsError(try SupportedRegisters.decode(response: "62FFF080000000", base: 0xFFF0))
     }
 
+    func testSupportedRegisterBitmapAcrossByteBoundariesAtMaximumBase() throws {
+        XCTAssertEqual(
+            try SupportedRegisters.decode(response: "62FFDF81818181", base: 0xFFDF),
+            [0xFFE0, 0xFFE7, 0xFFE8, 0xFFEF, 0xFFF0, 0xFFF7, 0xFFF8, 0xFFFF]
+        )
+    }
+
     func testEmptyLoggingSelectionDoesNotInitializeOrWrite() async throws {
         let transport = FixtureTransport()
         let client = DiagnosticClient(transport: transport)

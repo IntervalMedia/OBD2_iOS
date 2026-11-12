@@ -10,6 +10,13 @@ final class WorkSupportTests: XCTestCase {
         }
     }
 
+    func testMaskAcrossByteBoundariesAtMaximumBase() throws {
+        XCTAssertEqual(
+            try NissanWorkSupportCapabilities.decodeMask("71E081818183", service: 0x31, base: 0xE0),
+            [0xE1, 0xE8, 0xE9, 0xF0, 0xF1, 0xF8, 0xF9, 0xFF]
+        )
+    }
+
     func testDiscoveryAndSingleStartFuelTrimReset() async throws {
         let transport = WorkSupportFixture()
         let client = DiagnosticClient(transport: transport)
